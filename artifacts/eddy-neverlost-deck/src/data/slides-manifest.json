@@ -1,0 +1,74 @@
+[
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a01",
+    "position": 1,
+    "filepath": "src/pages/slides/Slide01Title.tsx",
+    "title": "EDS / EddY / NEVERLOST",
+    "description": "O patrimônio digital não sumiu.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a02",
+    "position": 2,
+    "filepath": "src/pages/slides/Slide02Problem.tsx",
+    "title": "O problema não é falta de informação",
+    "description": "O acervo cresce, mas raramente vira produção.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a03",
+    "position": 3,
+    "filepath": "src/pages/slides/Slide03Thesis.tsx",
+    "title": "A tese da EDS",
+    "description": "Transformar informação dispersa em conhecimento acionável.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a04",
+    "position": 4,
+    "filepath": "src/pages/slides/Slide04Eddy.tsx",
+    "title": "EddY: o motor central",
+    "description": "Capturar, entender, organizar, produzir e evoluir.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a05",
+    "position": 5,
+    "filepath": "src/pages/slides/Slide05NeverLost.tsx",
+    "title": "NeverLost-lite: o primeiro produto",
+    "description": "Um diagnóstico inicial do patrimônio digital.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a06",
+    "position": 6,
+    "filepath": "src/pages/slides/Slide06Experience.tsx",
+    "title": "A experiência em poucos minutos",
+    "description": "Do arquivo selecionado à decisão concreta.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a07",
+    "position": 7,
+    "filepath": "src/pages/slides/Slide07Architecture.tsx",
+    "title": "Arquitetura de evolução",
+    "description": "O NeverLost Scanner alimenta o EddY Core e suas factories.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a08",
+    "position": 8,
+    "filepath": "src/pages/slides/Slide08Roadmap.tsx",
+    "title": "Roadmap: do diagnóstico ao sistema operacional",
+    "description": "V0 a V7, em entregas incrementais.",
+    "speakerNotes": ""
+  },
+  {
+    "id": "4ec1a0d0-8c4f-4c4c-a6de-04c7bb079a09",
+    "position": 9,
+    "filepath": "src/pages/slides/Slide09Next.tsx",
+    "title": "O próximo movimento",
+    "description": "Enxergar melhor para produzir melhor.",
+    "speakerNotes": ""
+  }
+]

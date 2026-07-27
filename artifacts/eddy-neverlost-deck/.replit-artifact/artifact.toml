@@ -1,0 +1,27 @@
+kind = "slides"
+previewPath = "/eddy-neverlost-deck/"
+title = "EDS · EddY · NeverLost"
+version = "1.0.0"
+id = "artifacts/eddy-neverlost-deck"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/eddy-neverlost-deck/" ]
+localPort = 19838
+
+[services.development]
+run = "pnpm --filter @workspace/eddy-neverlost-deck run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/eddy-neverlost-deck", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/eddy-neverlost-deck/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19838"
+BASE_PATH = "/eddy-neverlost-deck/"
