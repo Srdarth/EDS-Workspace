@@ -1,0 +1,1 @@
+- [NeverLost MVP direction](neverlost-mvp.md) — begin with a privacy-first browser-local archive diagnostic focused on actionable next moves.
