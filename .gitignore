@@ -1,11 +1,17 @@
+# Python
 __pycache__/
 *.pyc
-*.db
-*.sqlite3
+*.pyo
+*.egg-info/
 .env
-data/
-legacy/
-.vscode/
-apps/scanner/__pycache__/
-*.pyc
+venv/
+
+# Dados (NUNCA subir arquivos do usuário)
+*.db
+*.sqlite
+*.sqlite3
 teste_eddy/
+relatorio_*.html
+
+# Docker
+postgres_data/
