@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+# Scanner service (placeholder)
+scanner:
+build: ./scanner
+volumes:
+- ./data:/app/data
+environment:
+- PYTHONUNBUFFERED=1
+
+# Database (placeholder)
+db:
+image: postgres:15-alpine
+environment:
+POSTGRES_USER: eddy
+POSTGRES_PASSWORD: eddy123
+POSTGRES_DB: eddy_core
+volumes:
+- postgres_data:/var/lib/postgresql/data
+ports:
+- "5432:5432"
+
+volumes:
+postgres_data:
