@@ -6,3 +6,6 @@ __pycache__/
 data/
 legacy/
 .vscode/
+apps/scanner/__pycache__/
+*.pyc
+teste_eddy/

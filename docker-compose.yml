@@ -1,25 +1,24 @@
 version: '3.8'
 
 services:
-# Scanner service (placeholder)
-scanner:
-build: ./scanner
-volumes:
-- ./data:/app/data
-environment:
-- PYTHONUNBUFFERED=1
-
-# Database (placeholder)
-db:
-image: postgres:15-alpine
-environment:
-POSTGRES_USER: eddy
-POSTGRES_PASSWORD: eddy123
-POSTGRES_DB: eddy_core
-volumes:
-- postgres_data:/var/lib/postgresql/data
-ports:
-- "5432:5432"
+  postgres:
+    image: postgres:16-alpine
+    container_name: eddy-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eddydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - eddy-net
+    restart: unless-stopped
 
 volumes:
-postgres_data:
+  postgres_data:
+
+networks:
+  eddy-net:
+    driver: bridge
