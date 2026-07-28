@@ -15,3 +15,13 @@ relatorio_*.html
 
 # Docker
 postgres_data/
+
+# EddY Core
+*.db
+*.db-wal
+*.db-shm
+EddY_Organizado/
+logs/
+eddy_logs/
+__pycache__/
+*.pyc
