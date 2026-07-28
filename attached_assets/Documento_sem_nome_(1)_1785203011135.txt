@@ -1,0 +1,80 @@
+﻿# EddY Core v1.0 - Organizador Inicial - Feito para Edson
+# Objetivo: Mapear drives, planejar organização, executar sem perda
+
+
+import os
+import hashlib
+import sqlite3
+from datetime import datetime
+
+
+print("=== EddY Core v1.0 - Bem-vindo ao cérebro inicial da EDS ===")
+print("Vamos organizar seus dados sem retrabalho. Tudo salvo em eddy.db\n")
+
+
+# Configuração simples (você muda aqui se precisar)
+DRIVES = ["D:\\", "K:\\", "R:\\"]  # Seus drives reais
+PASTA_BASE = "D:\\EddY_Core\\Dados_Organizados"  # Onde as coisas vão ficar organizadas
+
+
+# Criar pasta se não existir
+if not os.path.exists(PASTA_BASE):
+    os.makedirs(PASTA_BASE)
+    print(f"Criei pasta principal: {PASTA_BASE}")
+
+
+# Caminho do cérebro (não mude)
+db_path = "D:\\EddY_Core\\eddy.db"
+
+
+# Conecta no cérebro
+conn = sqlite3.connect(db_path)
+cursor = conn.cursor()
+cursor.execute('''CREATE TABLE IF NOT EXISTS arquivos
+                  (caminho TEXT PRIMARY KEY, hash TEXT, tamanho INTEGER, data_mod TEXT, tags TEXT)''')
+conn.commit()
+
+
+def calcular_hash(caminho):
+    """Calcula hash MD5 para detectar duplicatas"""
+    hash_md5 = hashlib.md5()
+    with open(caminho, "rb") as f:
+        for bloco in iter(lambda: f.read(4096), b""):
+            hash_md5.update(bloco)
+    return hash_md5.hexdigest()
+
+
+def etapa_mapear():
+    print("\nEtapa 1: Mapeando todos os drives... (pode demorar)")
+    arquivos_mapeados = 0
+    
+    for drive in DRIVES:
+        print(f"  - Escaneando {drive}...")
+        for raiz, pastas, arquivos in os.walk(drive):
+            for arquivo in arquivos:
+                caminho_completo = os.path.join(raiz, arquivo)
+                try:
+                    tamanho = os.path.getsize(caminho_completo)
+                    data_mod = datetime.fromtimestamp(os.path.getmtime(caminho_completo)).strftime("%Y-%m-%d %H:%M")
+                    hash_val = calcular_hash(caminho_completo)
+                    
+                    cursor.execute("INSERT OR REPLACE INTO arquivos VALUES (?, ?, ?, ?, ?)",
+                                   (caminho_completo, hash_val, tamanho, data_mod, "pendente"))
+                    arquivos_mapeados += 1
+                    
+                    if arquivos_mapeados % 1000 == 0:
+                        conn.commit()
+                        print(f"    {arquivos_mapeados} arquivos mapeados...")
+                except Exception as e:
+                    print(f"    Ignorando {caminho_completo} - erro: {e}")
+    
+    conn.commit()
+    print(f"\nMapeamento concluído! Total: {arquivos_mapeados} arquivos no cérebro.")
+
+
+# Iniciar o processo
+if __name__ == "__main__":
+    etapa_mapear()
+    print("\nPrimeira etapa completa. O EddY agora sabe o que você tem.")
+    print("Próximo passo (quando você quiser): Planejar e mover para pastas bonitinhas.")
+    input("Pressione Enter para fechar...")
