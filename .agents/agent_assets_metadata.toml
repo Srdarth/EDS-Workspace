@@ -1,0 +1,14 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "cojzFgCiy1645tdd98DwL"
+uri = "file://.local/outputs/Digital-Asset-Engine.pptx"
+type = "slides"
+title = "Digital Asset Engine.pptx"
+
+[[outputs]]
+id = "DeRsOko2EOwUCo2gtjOfs"
+uri = "file://.local/outputs/Digital-Asset-Engine.pdf"
+type = "pdf"
+title = "Digital Asset Engine.pdf"

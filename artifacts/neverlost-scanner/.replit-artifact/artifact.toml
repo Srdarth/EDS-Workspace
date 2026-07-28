@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "NeverLost Scanner"
+version = "1.0.0"
+id = "artifacts/neverlost-scanner"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25072
+
+[services.development]
+run = "pnpm --filter @workspace/neverlost-scanner run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/neverlost-scanner", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/neverlost-scanner/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25072"
+BASE_PATH = "/"

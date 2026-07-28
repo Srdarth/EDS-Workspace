@@ -1,0 +1,77 @@
+﻿import os
+import sqlite3
+import time
+
+
+# Caminho fixo e seguro
+ROOT_PATH = "R:\\"
+DB_PATH = "R:\\EddY_CORE\\data\\eddy.db"
+
+
+def create_db():
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS files (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            path TEXT,
+            size INTEGER,
+            mtime REAL
+        )
+    """)
+
+
+    conn.commit()
+    conn.close()
+
+
+def run_indexer():
+    print("\n[MAPEAMENTO INICIADO]")
+    print("Nada será apagado. Nada será movido.\n")
+
+
+    create_db()
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+
+
+    count = 0
+
+
+    for root, dirs, files in os.walk(ROOT_PATH):
+        for name in files:
+            try:
+                full_path = os.path.join(root, name)
+                size = os.path.getsize(full_path)
+                mtime = os.path.getmtime(full_path)
+
+
+                cur.execute(
+                    "INSERT INTO files (path, size, mtime) VALUES (?, ?, ?)",
+                    (full_path, size, mtime)
+                )
+
+
+                count += 1
+
+
+                # pausa leve a cada 500 arquivos
+                if count % 500 == 0:
+                    conn.commit()
+                    print(f"{count} arquivos mapeados...")
+                    time.sleep(0.2)
+
+
+            except Exception:
+                # ignora arquivos problemáticos
+                pass
+
+
+    conn.commit()
+    conn.close()
+
+
+    print(f"\n[MAPEAMENTO FINALIZADO]")
+    print(f"Total de arquivos registrados: {count}")

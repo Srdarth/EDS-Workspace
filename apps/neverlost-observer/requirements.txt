@@ -1,0 +1,14 @@
+# EddY — NeverLost Observer (Python pipeline)
+# Core — stdlib only, no install needed:
+#   sqlite3, pathlib, hashlib, os, json, shutil, datetime, re, unicodedata, collections
+
+# Optional — content extraction (instale para habilitar identify.py completo)
+PyPDF2>=3.0.0          # Extração de texto de PDFs
+python-docx>=1.1.0     # Extração de texto de DOCX
+Pillow>=10.0.0         # Leitura de EXIF de imagens
+
+# Optional — GUI (NeverLost Observer GUI)
+# tkinter é stdlib no Windows/Linux; instale python3-tk no Debian/Ubuntu
+
+# Dev
+pytest>=7.0.0

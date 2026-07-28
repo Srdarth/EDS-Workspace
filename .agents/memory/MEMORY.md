@@ -1,0 +1,1 @@
+- [NeverLost MVP direction](neverlost-mvp.md) — pipeline EddY (6 etapas), taxonomia DEFAULT_RULES portada em TS, dados reais de scan, e o que o scanner web implementa.
