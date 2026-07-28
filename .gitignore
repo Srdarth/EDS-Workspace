@@ -47,3 +47,27 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+attached_assets/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.env
+venv/
+.venv/
+
+# EddY — dados (NUNCA subir arquivos do usuário)
+*.db
+*.sqlite
+*.sqlite3
+eddy.db
+teste_eddy/
+relatorio_*.html
+mapa_do_caos_*.html
+scan_state_*.json
+undo_*.txt
+
+# Docker
+postgres_data/
